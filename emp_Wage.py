@@ -7,9 +7,9 @@ def partTime():
     IS_PART_TIME = 1
     random = Random()
     empCheck = random.randint(0, 3)
-    if empCheck == IS_PART_TIME:
+    if empCheck is IS_PART_TIME:
         empHrs = 4
-    elif empCheck == IS_FULL_TIME:
+    elif empCheck is IS_FULL_TIME:
         empHrs = 8
     else:
         empHrs = 0
