@@ -10,17 +10,17 @@ def employeeWage():
     random = Random()
 
     empCheck = random.randint(0, 2)
-    if empCheck == ispresent:
+    if empCheck is ispresent:
         print("employee is present")
 
     else:
         print("employee is absent")
 
-    if empCheck == 1:
+    if empCheck is 1:
         emphrs += 8
-    elif empCheck == 2:
+    elif empCheck is 2:
         emphrs += 4
-    elif empCheck == 0:
+    elif empCheck is 0:
 
         emphrs = 0
     else:
