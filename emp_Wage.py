@@ -1,32 +1,37 @@
 from random import Random
 
 
-def totalWage():
-    IS_PART_TIME = 1
-    IS_FULL_TIME = 2
-    EMP_RATE_PER_HOUR = 20
-    NUM_OF_WORKING_DAYS = 2
-    MAX_HRS_IN_MONTH = 10
-    totalempHrs = 0
-    totalWorkingDays = 0
-    while totalempHrs <= MAX_HRS_IN_MONTH and totalWorkingDays < NUM_OF_WORKING_DAYS:
-        totalWorkingDays += 1
-        random = Random()
-        empCheck = random.randint(0, 3)
-        if empCheck == IS_PART_TIME:
-            empHrs = 4
-        elif empCheck == IS_FULL_TIME:
-            empHrs = 8
-        else:
-            empHrs = 0
+def employeeWage():
+    empwageperhrs = 20
+    emphrs = 0
+    workingdays = 0
 
-        totalempHrs += empHrs
-        print("Day#:" + str(totalWorkingDays) + "empHrs : " + str(empHrs))
-    totalempWage = totalempHrs * EMP_RATE_PER_HOUR
-    print("totalempWage :" + str(totalempWage))
-    return totalempWage
+    ispresent = 1
+    random = Random()
+
+    empCheck = random.randint(0, 2)
+    if empCheck == ispresent:
+        print("employee is present")
+
+    else:
+        print("employee is absent")
+
+    if empCheck == 1:
+        emphrs += 8
+    elif empCheck == 2:
+        emphrs += 4
+    elif empCheck == 0:
+
+        emphrs = 0
+    else:
+        print("error")
+    workingdays += 1
+
+    print("Total Working Hours : " + str(emphrs))
+    print("Total working Days Per Month : " + str(workingdays))
+    monthsalary = empwageperhrs * emphrs
+    print("Total Salary of Employee per Month : " + str(monthsalary))
 
 
 if __name__ == "__main__":
-
-    totalWage()
+    employeeWage()
