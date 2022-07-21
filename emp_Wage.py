@@ -7,7 +7,7 @@ def Dailywage():
     random = Random()
     # computation
     empCheck = random.randint(0, 2)
-    if empCheck == IS_FULL_TIME:
+    if empCheck is IS_FULL_TIME:
         empHrs = 8
     else:
         empHrs = 0
