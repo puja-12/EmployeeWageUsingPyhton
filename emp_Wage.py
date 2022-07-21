@@ -1,18 +1,20 @@
 from random import Random
 
 
-def Main():
-    ispresent = 1
+def Dailywage():
+    IS_FULL_TIME = 1
+    EMP_RATE_PER_HOUR = 20
     random = Random()
-
+    # computation
     empCheck = random.randint(0, 2)
-    if empCheck is ispresent:
-        print("employee is present")
-
+    if empCheck == IS_FULL_TIME:
+        empHrs = 8
     else:
-        print("employee is absent")
-        return empCheck
+        empHrs = 0
+    empWage = empHrs * EMP_RATE_PER_HOUR
+    print("Emp Wage :" + str(empWage))
+    return empWage
 
 
 if __name__ == "__main__":
-    Main()
+    Dailywage()
