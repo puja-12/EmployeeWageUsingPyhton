@@ -10,7 +10,6 @@ class TotalSalary:
         self._workingDaysPerMonth = 0
         self._maxWorkingDays = 0
         self._maxWorkingHours = 0
-        self._Company = None
 
     def salary(self, Company, wagePerHour, maxWorkingDays, maxWorkingHours):
 
