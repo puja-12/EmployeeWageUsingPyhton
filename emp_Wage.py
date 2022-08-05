@@ -11,7 +11,7 @@ class TotalSalary:
         self._maxWorkingDays = 0
         self._maxWorkingHours = 0
 
-    def salary(self, Company, wagePerHour, maxWorkingDays, maxWorkingHours):
+    def salary(self, company, wagePerHour, maxWorkingDays, maxWorkingHours):
 
         attendanceCheck = Random()
         isPresent = attendanceCheck.randint(0, 4)
@@ -43,7 +43,7 @@ class TotalSalary:
         print("Total Working Hours : " + str(self._workingHours))
         print("Total working Days Per Month : " + str(self._workingDaysPerMonth))
         totalSalary = wagePerHour * self._workingHours
-        print("Total Salary of Employee per Month ", Company, totalSalary)
+        print("Total Salary of Employee per Month ", company, totalSalary)
 
 
 if __name__ == "__main__":
