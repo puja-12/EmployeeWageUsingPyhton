@@ -2,14 +2,8 @@ from random import Random
 
 
 class TotalSalary:
-    def __init__(self, wagePerHour, maxWorkingDays, maxWorkingHours, company):
-    
-        self._wagePerHour = 20
-        self._workingHours = 0
-        self._workingDaysPerMonth = 0
-        self._maxWorkingDays = 0
-        self._maxWorkingHours = 0
-        self._totalSalary = 0
+
+    def __init__(self, company, wagePerHour, maxWorkingDays, maxWorkingHours):
 
         self._company = company
         self._wagePerHour = wagePerHour
@@ -17,6 +11,8 @@ class TotalSalary:
         self._maxWorkingHours = maxWorkingHours
 
     def salary(self):
+        workingHours = 0
+        workingDaysPerMonth = 0
 
         attendanceCheck = Random()
         isPresent = attendanceCheck.randint(0, 4)
@@ -32,22 +28,22 @@ class TotalSalary:
             print("Employee is Absent!")
             # WorkingHours = 0
 
-        while (self._workingHours < self._maxWorkingHours) and (self._workingDaysPerMonth < self._maxWorkingDays):
+        while (workingHours < self._maxWorkingHours) and (workingDaysPerMonth < self._maxWorkingDays):
 
             if isPresent == 1:
 
-                self._workingHours += 8
+                workingHours += 8
             elif isPresent == 2:
 
-                self._workingHours += 4
+                workingHours += 4
             elif isPresent == 0:
 
-                self._workingHours = 0
+                workingHours = 0
 
-            self._workingDaysPerMonth += 1
-        print("Total Working Hours : " + str(self._workingHours))
-        print("Total working Days Per Month : " + str(self._workingDaysPerMonth))
-        totalSalary = self._wagePerHour * self._workingHours
+            workingDaysPerMonth += 1
+        print("Total Working Hours : " + str(workingHours))
+        print("Total working Days Per Month : " + str(workingDaysPerMonth))
+        totalSalary = self._wagePerHour * workingHours
         print("Total Salary of Employee per Month ", self._company, "is", totalSalary)
 
 
