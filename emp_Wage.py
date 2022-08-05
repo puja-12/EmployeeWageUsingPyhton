@@ -3,7 +3,7 @@ from random import Random
 
 class TotalSalary:
     def __init__(self, wagePerHour, maxWorkingDays, maxWorkingHours, company):
-        # instance fields found by C# to Python Converter:
+    
         self._wagePerHour = 20
         self._workingHours = 0
         self._workingDaysPerMonth = 0
