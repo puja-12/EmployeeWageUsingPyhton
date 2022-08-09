@@ -19,14 +19,14 @@ class Employee:
 
 
 class Company:
-    # emp = Employee(self.as_dict())
 
     def __init__(self, company_name):
         self.emp_dict = {}
         self.com_name = company_name
         self.filename = 'employee.json'
 
-    def add_contacts(self):
+    def add_emp_details(self):
+        """Adding details provided by the user in our employee file"""
 
         global employee_detail
         try:
@@ -35,13 +35,13 @@ class Company:
                 data = json.load(employee_detail)
                 employee_detail.close()
             else:
-                employee_detail = open(self.filename, 'a')
-                data = {}
+                employee_detail = open(self.filename, 'w')
+                data = Employee.as_dict()
 
-            contact = self.get_details_from_user()
-            data[contact['com_name']] = contact
-            employee_detail = open(self.filename, 'a')
-            json.dump(data, employee_detail)
+            employee_detail = self.get_details_from_user()
+            data[employee_detail['emp_id']] = employee_detail
+            employee_detail = open(self.filename, 'w')
+            json.dump(data, employee_detail, indent=4)
             employee_detail.close()
 
             print('Contact Added Successfully!')
@@ -51,20 +51,22 @@ class Company:
         finally:
             employee_detail.close()
 
-            # Getting the details from the user to adding the employess
-
     def get_details_from_user(self):
+        """Getting the details from the user to adding the employess"""
+
         try:
-            self.emp_dict['com_name'] = str(input('Enter Contact\'s company Name: '))
-            self.emp_dict['emp_name'] = str(input('Enter Contact\'s Full Name: '))
-            self.emp_dict['emp_id'] = str(input('Enter Contact\'s emp_id: '))
-            self.emp_dict['emp_salary'] = str(input('Enter Contact\'s emp_salary: '))
-            self.emp_dict['emp_phone'] = int(input('Enter Contact\'s Phone Number: '))
+
+            self.emp_dict['emp_name'] = str(input('Enter  employee full name: '))
+            self.emp_dict['emp_id'] = int(input('Enter  employee id: '))
+            self.emp_dict['emp_salary'] = str(input('Enter employee salary: '))
+            self.emp_dict['emp_phone'] = int(input('Enter employee Phone Number: '))
             return self.emp_dict
-        except KeyboardInterrupt as error:
+        except Exception as error:
             raise error
 
-    def display_contacts(self):
+    def display_all_emp_details(self):
+        """To display ALL the employee details in our employee file"""
+
         if os.path.exists(self.filename) and os.path.getsize(self.filename) > 0:
             employee_detail = open(self.filename, 'r')
             data = json.load(employee_detail)
@@ -84,6 +86,8 @@ if __name__ == "__main__":
     while True:
         choice = int(input('Enter your choice: '))
         if choice == 1:
-            company.add_contacts()
+            company.add_emp_details()
         elif choice == 2:
-            company.display_contacts()
+            company.display_all_emp_details()
+        else:
+            print("choose correct option")
