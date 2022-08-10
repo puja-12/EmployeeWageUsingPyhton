@@ -72,8 +72,8 @@ class Company:
         print("updated successfully")
 
     def delete(self, emp_id):
-        contact = self.get_contact(emp_id)
-        if not contact:
+        data = self.get_contact(emp_id)
+        if not data:
             print("given id not exists")
             return
         self.emp_dict.pop(emp_id)
