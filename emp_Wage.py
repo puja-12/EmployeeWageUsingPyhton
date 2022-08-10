@@ -2,22 +2,6 @@ import os
 import json
 
 
-class Employee:
-
-    def __init__(self, data: dict):
-        self.emp_name = data.get("emp_name")
-        self.emp_id = data.get("emp_id")
-        self.emp_salary = data.get("emp_salary")
-        self.emp_phone = data.get("emp_phone")
-
-    def details(self):
-        return f"{self.emp_name},{self.emp_id},{self.emp_salary},{self.emp_phone}"
-
-    def as_dict(self):
-        return {'emp_name': self.emp_name, 'emp_id': self.emp_id,
-                'emp_salary': self.emp_salary, 'emp_phone': self.emp_phone}
-
-
 class Company:
 
     def __init__(self, company_name):
@@ -36,7 +20,7 @@ class Company:
                 employee_detail.close()
             else:
                 employee_detail = open(self.filename, 'w')
-                data = Employee.as_dict()
+                data = {}
 
             employee_detail = self.get_details_from_user()
             data[employee_detail['emp_id']] = employee_detail
