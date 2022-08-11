@@ -57,11 +57,11 @@ class Company:
         for key, value in self.emp_dict.items():
             print(TABLE.format(*value.as_list()))
 
-    def get_contact(self, emp_id):
+    def get_emp(self, emp_id):
         return self.emp_dict.get(emp_id)
 
     def edit(self, emp_id,emp_name,emp_salary,emp_phone):
-        emp_details = self.get_contact(emp_id)
+        emp_details = self.get_emp(emp_id)
         if not emp_details:
             print("emp id is not present")
             return
@@ -72,7 +72,7 @@ class Company:
         print("updated successfully")
 
     def delete(self, emp_id):
-        data = self.get_contact(emp_id)
+        data = self.get_emp(emp_id)
         if not data:
             print("given id not exists")
             return
